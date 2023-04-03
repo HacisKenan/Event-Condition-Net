@@ -94,7 +94,7 @@ Future features
 <!-- GETTING STARTED -->
 ## Getting Started
 
-1. Clone repository in preferred IDE and use the file test.java in "main" module and "gui" package to run the program. 
+1. Clone repository in preferred IDE and use the file test.java in "src" module and "gui" package to run the program. 
 2. Run the program -> a gui should popup with already filled out input for testing
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/71691437/229566780-d46e99e8-20e7-4383-8616-ddab536c2c39.png">
 3. input your places in following notation 
