@@ -72,9 +72,10 @@ public class ECNet {
     /** attributes for main class ECNet **/
     private List<Event> events = new ArrayList<>();
     private List<Place> places = new ArrayList<>();
+    private List<Place> startPlaces = new ArrayList<>();
 
     /** the ECNet gets his informations for places, edges and events from Strings that are in set notation **/
-    public ECNet(String path, String places, String events) {
+    public ECNet(String path, String places, String events,String startPlaces) {
         String[] placesArrStr = places.split(",");  /** store each place into an element of an array **/
         Arrays.stream(placesArrStr).forEach(line -> this.places.add(new Place(Integer.parseInt(line.substring(1)))));   /** extract id from string and add new place to places attribute **/
 
@@ -101,10 +102,15 @@ public class ECNet {
                                 addPostCondition(this.places.stream().filter(x -> x.id == id2).findFirst().get());
                     }
                 });
+
+        /** extract starting places from string and store them in startPlaces attribute **/
+        String[] startingP = startPlaces.split(",");
+        Arrays.stream(startingP).forEach(p->this.startPlaces.add(this.places.stream()
+                .filter(k -> Integer.parseInt(p.substring(1))==k.getId()).findFirst().get()));
     }
 
     /** getters **/
-    public Place getFirstPlace() {return places.get(0);}
+    public List<Place> getStartPlaces() {return startPlaces;}
     public List<Event> getEvents() {return events;}
     public List<Place> getPlaces() {return places;}
 }

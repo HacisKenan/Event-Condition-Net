@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -28,6 +29,7 @@ public class GUI extends JFrame {
     private JTextField places;
     private JTextField events;
     private JTextField edges;
+    private JTextField startPlaces;
     private JTextArea tracesF;
     private JButton button;
     private JButton reset;
@@ -44,11 +46,13 @@ public class GUI extends JFrame {
         places = new JTextField(15);
         events = new JTextField(15);
         edges = new JTextField(15);
+        startPlaces = new JTextField(15);
 
         /** test purposes only to save time, typing in all of the inputs **/
         places.setText("p0,p1,p2,p3,p4,p5");
         events.setText("T0,T2,T3,T4");
         edges.setText("(p0;T0),(T0;p1),(T0;p2),(p1;T2),(p2;T3),(T3;p3),(T2;p4),(p4;T4),(p3;T4),(T4;p5)");
+        startPlaces.setText("p0");
 
         /** set up output area **/
         tracesF = new JTextArea();
@@ -79,18 +83,29 @@ public class GUI extends JFrame {
                 }
 
                 /** extract input from inputfields and initialize ECNet **/
-                ECNet ecNet = new ECNet(edges.getText(),places.getText(),events.getText());
+                ECNet ecNet = new ECNet(edges.getText(),places.getText(),events.getText(),startPlaces.getText());
                 BlockingQueue<ECNet.Event> trace = new LinkedBlockingQueue<>();
-                Thread test = new Thread(new RunnableECNet(ecNet.getFirstPlace(),trace));
+                List<ECNet.Place> startPlaces = ecNet.getStartPlaces();
+                List<Thread> threadQueue = new ArrayList<>();
+                for(ECNet.Place p: startPlaces)
+                {
+                    threadQueue.add(new Thread(new RunnableECNet(p,trace)));
+                }
                 BlockingQueue<BlockingQueue<ECNet.Event>> traces = new LinkedBlockingQueue<>();
 
                 /** run simulation 100 times to get all possible outputs **/
                 for(int i=0;i<100;i++)
                 {
                     trace.clear();
-                    test.run();
+                    for(Thread t: threadQueue)
+                    {
+                        t.run();
+                    }
                     try {
-                        test.join();
+                        for(Thread t: threadQueue)
+                        {
+                            t.join();
+                        }
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();
                     }
@@ -148,15 +163,19 @@ public class GUI extends JFrame {
         c.gridy = 0;
         c.anchor = GridBagConstraints.LINE_END;
         c.insets = new Insets(5, 5, 5, 5);
-        panel.add(new JLabel("places:"), c);
+        panel.add(new JLabel("Places:"), c);
 
         c.gridx = 0;
         c.gridy = 1;
-        panel.add(new JLabel("events:"), c);
+        panel.add(new JLabel("Events:"), c);
 
         c.gridx = 0;
         c.gridy = 2;
-        panel.add(new JLabel("edges:"), c);
+        panel.add(new JLabel("Edges:"), c);
+
+        c.gridx = 0;
+        c.gridy = 3;
+        panel.add(new JLabel("Starting places:"),c);
 
         c.gridx = 1;
         c.gridy = 0;
@@ -176,9 +195,14 @@ public class GUI extends JFrame {
         edges.setMaximumSize(new Dimension(Integer.MAX_VALUE, edges.getPreferredSize().height));
         panel.add(edges, c);
 
+        c.gridx = 1;
+        c.gridy = 3;
+        startPlaces.setMaximumSize(new Dimension(Integer.MAX_VALUE, startPlaces.getPreferredSize().height));
+        panel.add(startPlaces, c);
+
         /** output field **/
         c.gridx = 0;
-        c.gridy = 3;
+        c.gridy = 4;
         c.gridheight = 1;
         c.gridwidth=3;
         c.fill = GridBagConstraints.BOTH;
@@ -190,7 +214,7 @@ public class GUI extends JFrame {
 
         /** buttons **/
         c.gridx = 1;
-        c.gridy = 4;
+        c.gridy = 5;
         c.gridheight = 1;
         c.gridwidth = 1;
         c.weightx = 1.0;
@@ -201,7 +225,7 @@ public class GUI extends JFrame {
         panel.add(button, c);
 
         c.gridx = 2;
-        c.gridy = 4;
+        c.gridy = 5;
         panel.add(reset, c);
 
         /** set up background and foreground colors **/
