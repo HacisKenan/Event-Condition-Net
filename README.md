@@ -80,6 +80,7 @@ Current project status
 * programmed program to simulate Event-Condition-Net
 * programmed simple gui in java swing, where you can input your Event-Condition-Net in set notation and get an output with possible traces
 * visualisation of petri net with mxGraph (https://github.com/jgraph/mxgraph/tree/master/java)
+* current project version assumes that the first and only start token to be placed is the first place that is being inputted
 
 Future features
 * improved simulation, with multiplite start tokens
