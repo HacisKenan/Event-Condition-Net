@@ -18,58 +18,73 @@ import com.mxgraph.view.mxGraph;
 
 
 public class GUI extends JFrame {
-    private JTextField stellen;
-    private JTextField transitionen;
-    private JTextField kanten;
+    /** attributes
+     *  textfields for places/events/edges to input ECNet in set notation
+     *  textarea to output traces
+     *  button to start simulation
+     *  button to reset input
+     *  mxGC to illustrate ECNet on GUI
+     *  Panel for illustration of ECNet **/
+    private JTextField places;
+    private JTextField events;
+    private JTextField edges;
     private JTextArea tracesF;
     private JButton button;
     private JButton reset;
     private mxGraphComponent mxGC;
     private JPanel scrollPaneContent = new JPanel();
+
     public GUI() {
-        // Set up the frame
+        /** set up the frame **/
         setTitle("Event-Condition Nets");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // Set up the input fields
-        stellen = new JTextField(15);
-        transitionen = new JTextField(15);
-        kanten = new JTextField(15);
+        /** set up input fields **/
+        places = new JTextField(15);
+        events = new JTextField(15);
+        edges = new JTextField(15);
 
-        stellen.setText("p0,p1,p2,p3,p4,p5");
-        transitionen.setText("T0,T2,T3,T4");
-        kanten.setText("(p0;T0),(T0;p1),(T0;p2),(p1;T2),(p2;T3),(T3;p3),(T2;p4),(p4;T4),(p3;T4),(T4;p5)");
+        /** test purposes only to save time, typing in all of the inputs **/
+        places.setText("p0,p1,p2,p3,p4,p5");
+        events.setText("T0,T2,T3,T4");
+        edges.setText("(p0;T0),(T0;p1),(T0;p2),(p1;T2),(p2;T3),(T3;p3),(T2;p4),(p4;T4),(p3;T4),(T4;p5)");
 
-        // Set up the output field
+        /** set up output area **/
         tracesF = new JTextArea();
         tracesF.setEditable(false);
 
-        // Set up the button
+        /** set up reset button to erase all content from every input field and output area **/
         reset = new JButton("Reset");
         reset.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tracesF.setText("");
-                stellen.setText("");
-                transitionen.setText("");
-                kanten.setText("");
+                places.setText("");
+                events.setText("");
+                edges.setText("");
             }
         });
 
-        button = new JButton("Simulation starten");
+        /** set up simulation button to start simulation **/
+        button = new JButton("start simulation");
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 tracesF.setText("");
-                if(stellen.getText().length()<=0 || transitionen.getText().length()<=0 || kanten.getText().length()<0)
-                {
-                    tracesF.setText("Eingabe unvollständig");
-                }
-                ECNet ecNet = new ECNet(kanten.getText(),stellen.getText(),transitionen.getText());
-                BlockingQueue<ECNet.Transition> trace = new LinkedBlockingQueue<>();
-                Thread test = new Thread(new RunnableECNet(ecNet.getFirstPlace(),trace));
-                BlockingQueue<BlockingQueue<ECNet.Transition>> traces = new LinkedBlockingQueue<>();
 
+                /** check for invalid input **/
+                if(places.getText().length()<=0 || events.getText().length()<=0 || edges.getText().length()<0)
+                {
+                    tracesF.setText("invalid input");
+                }
+
+                /** extract input from inputfields and initialize ECNet **/
+                ECNet ecNet = new ECNet(edges.getText(),places.getText(),events.getText());
+                BlockingQueue<ECNet.Event> trace = new LinkedBlockingQueue<>();
+                Thread test = new Thread(new RunnableECNet(ecNet.getFirstPlace(),trace));
+                BlockingQueue<BlockingQueue<ECNet.Event>> traces = new LinkedBlockingQueue<>();
+
+                /** run simulation 100 times to get all possible outputs **/
                 for(int i=0;i<100;i++)
                 {
                     trace.clear();
@@ -80,9 +95,10 @@ public class GUI extends JFrame {
                         ex.printStackTrace();
                     }
 
+                    /** check if trace is already in traces queue **/
                     if(traces.stream().allMatch(x->{
-                        List<ECNet.Transition> list = trace.stream().toList();
-                        List<ECNet.Transition> xList = x.stream().toList();
+                        List<ECNet.Event> list = trace.stream().toList();
+                        List<ECNet.Event> xList = x.stream().toList();
                         if(list.size()!=xList.size()) return true;
 
                         for(int k=0;k<list.size();k++)
@@ -101,64 +117,66 @@ public class GUI extends JFrame {
                         }
                     }
                 }
+
+                /** output text in textarea **/
                 int k=0;
                 String out ="";
-                for(BlockingQueue<ECNet.Transition> t :traces)
+                for(BlockingQueue<ECNet.Event> t :traces)
                 {
                     out+="Trace " + k++ +": " +t.toString();
                     out+=System.lineSeparator();
                 }
                 tracesF.setText(out);
+
+                /** get mxGraph and add it to the according panel **/
                 mxGC=getMxGraphComp(ecNet);
                 scrollPaneContent.add(mxGC);
             }
         });
 
-        // Set up the layout
+        /** set up the layout **/
         JPanel panel = new JPanel(new GridBagLayout());
         JPanel content = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
         JScrollPane j = new JScrollPane();
-
-
         scrollPaneContent.setPreferredSize(new Dimension(500,500));
-
         j.setViewportView(scrollPaneContent);
 
+        /** input fields **/
         c.gridx = 0;
         c.gridy = 0;
         c.anchor = GridBagConstraints.LINE_END;
         c.insets = new Insets(5, 5, 5, 5);
-        panel.add(new JLabel("Stellen:"), c);
+        panel.add(new JLabel("places:"), c);
 
         c.gridx = 0;
         c.gridy = 1;
-        panel.add(new JLabel("Transitionen:"), c);
+        panel.add(new JLabel("events:"), c);
 
         c.gridx = 0;
         c.gridy = 2;
-        panel.add(new JLabel("Kanten:"), c);
+        panel.add(new JLabel("edges:"), c);
 
         c.gridx = 1;
         c.gridy = 0;
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 1.0;
         c.insets = new Insets(5, 5, 5, 5);
-        stellen.setMaximumSize(new Dimension(Integer.MAX_VALUE, stellen.getPreferredSize().height));
-        panel.add(stellen, c);
+        places.setMaximumSize(new Dimension(Integer.MAX_VALUE, places.getPreferredSize().height));
+        panel.add(places, c);
 
         c.gridx = 1;
         c.gridy = 1;
-        transitionen.setMaximumSize(new Dimension(Integer.MAX_VALUE, transitionen.getPreferredSize().height));
-        panel.add(transitionen, c);
+        events.setMaximumSize(new Dimension(Integer.MAX_VALUE, events.getPreferredSize().height));
+        panel.add(events, c);
 
         c.gridx = 1;
         c.gridy = 2;
-        kanten.setMaximumSize(new Dimension(Integer.MAX_VALUE, kanten.getPreferredSize().height));
-        panel.add(kanten, c);
+        edges.setMaximumSize(new Dimension(Integer.MAX_VALUE, edges.getPreferredSize().height));
+        panel.add(edges, c);
 
-        // Output field
+        /** output field **/
         c.gridx = 0;
         c.gridy = 3;
         c.gridheight = 1;
@@ -170,7 +188,7 @@ public class GUI extends JFrame {
         tracesF.setMaximumSize(new Dimension(Integer.MAX_VALUE, tracesF.getPreferredSize().height));
         panel.add(tracesF, c);
 
-        // Buttons
+        /** buttons **/
         c.gridx = 1;
         c.gridy = 4;
         c.gridheight = 1;
@@ -186,16 +204,16 @@ public class GUI extends JFrame {
         c.gridy = 4;
         panel.add(reset, c);
 
-// Set up colors
+        /** set up background and foreground colors **/
         Color background = new Color(250, 250, 250);
         Color foreground = new Color(50, 50, 50);
         Color inputBackground = new Color(230, 230, 230);
         Color buttonBackground = new Color(200, 200, 200);
 
         panel.setBackground(background);
-        stellen.setBackground(inputBackground);
-        transitionen.setBackground(inputBackground);
-        kanten.setBackground(inputBackground);
+        places.setBackground(inputBackground);
+        events.setBackground(inputBackground);
+        edges.setBackground(inputBackground);
         tracesF.setBackground(inputBackground);
         tracesF.setForeground(foreground);
         button.setBackground(buttonBackground);
@@ -203,62 +221,73 @@ public class GUI extends JFrame {
         reset.setBackground(inputBackground);
         reset.setForeground(foreground);
 
+        /** add scrollpane j to main panel **/
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
-
         content.add(j, gbc);
 
+        /** add panel with input, output and buttons to main panel **/
         gbc.gridx = 1;
         gbc.weightx = 0.0;
         content.add(panel, gbc);
+
+        /** add main panel to frame **/
         add(content, BorderLayout.CENTER);
 
-
+        /** set size of frame and turn it visible **/
         setSize(800, 500);
         setVisible(true);
 
     }
 
-
+    /** this method maps the ECNet to an mxGraph to make use of its visualization features **/
     public mxGraphComponent getMxGraphComp(ECNet ecNet)
     {
         mxGraph mxG = new mxGraph();
         Object parent = mxG.getDefaultParent();
         List<Object> places = new ArrayList<>(ecNet.getPlaces());
-        List<Object> transitions = new ArrayList<>(ecNet.getTransitions());
+        List<Object> events = new ArrayList<>(ecNet.getEvents());
 
-        places=places.stream().map(p -> mxG.insertVertex(parent,null,"p"+((ECNet.Place)p).id,50, 50, 60, 60,"shape=ellipse")).toList();
-        transitions=transitions.stream().map(t-> mxG.insertVertex(parent, null, "T"+((ECNet.Transition)t).getId(), 150, 50, 40, 80, "shape=rectangle")).toList();
+        /** map places and events to Objects and insert vertex to mxGraph accordingly **/
+        places=places.stream().map(p -> mxG.insertVertex(parent,null,
+                "p"+((ECNet.Place)p).getId(),50, 50, 60, 60,"shape=ellipse")).toList();
+        events=events.stream().map(t-> mxG.insertVertex(parent, null,
+                "T"+((ECNet.Event)t).getId(), 150, 50, 40, 80, "shape=rectangle")).toList();
 
+        /** iterate over places, extract neighbours by id and insert edges to mxGraph **/
         for(int i=0;i<places.size();i++)
         {
             Object p = places.get(i);
-            for(ECNet.Transition t : ecNet.getPlaces().stream().filter(k -> k.id==Integer.parseInt((String)mxG.getModel().getValue(p).toString().substring(1)))
-                    .findFirst().get().neighbors)
+            for(ECNet.Event t : ecNet.getPlaces().stream().filter(k -> k.getId()==Integer.parseInt((String)mxG.
+                            getModel().getValue(p).toString().substring(1))).findFirst().get().getNeighbors())
             {
-                Object tran = transitions.stream().filter(k->Integer.parseInt(mxG.getModel().getValue(k).toString().substring(1))==t.getId()).findFirst().get();
+                Object tran = events.stream().filter(k->Integer.parseInt(mxG.getModel().getValue(k).
+                        toString().substring(1))==t.getId()).findFirst().get();
                 mxG.insertEdge(parent, null, "", p, tran);
             }
         }
 
-        for(int i=0;i<transitions.size();i++)
+        /** iterate over events, extract post places by id and insert edges to mxGraph **/
+        for(int i=0;i<events.size();i++)
         {
-            Object t = transitions.get(i);
-            for(ECNet.Place p : ecNet.getTransitions().stream().filter(k -> k.getId()==Integer.parseInt((String)mxG.getModel().getValue(t).toString().substring(1)))
-                    .findFirst().get().getPostPlaces())
+            Object t = events.get(i);
+            for(ECNet.Place p : ecNet.getEvents().stream().filter(k -> k.getId()==Integer.parseInt((String)mxG.getModel().getValue(t).toString().substring(1)))
+                    .findFirst().get().getPostCondition())
             {
-                Object plac = places.stream().filter(k->Integer.parseInt(mxG.getModel().getValue(k).toString().substring(1))==p.id).findFirst().get();
+                Object plac = places.stream().filter(k->Integer.parseInt(mxG.getModel().getValue(k).toString().substring(1))==p.getId()).findFirst().get();
                 mxG.insertEdge(parent, null, "", t, plac);
             }
         }
 
+        /** create mxCompactTreeLayout to execute parent and create mxGraphComponent **/
         mxCompactTreeLayout layout = new mxCompactTreeLayout(mxG);
         layout.execute(parent);
         mxGraphComponent mxGC = new mxGraphComponent(mxG);
+
         return mxGC;
     }
 }
