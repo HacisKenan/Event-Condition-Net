@@ -120,10 +120,10 @@ Following repository has been used to visualize EC-Net in Java Swing (all credit
 - [x] Add ECN class
 - [x] Add possibility to simulate ECN with one start token
 - [x] Add simple gui to input ECN in set notation and find out what possible traces are possible
-- [ ] Add possibility to simulate ECN with multiple start tokens
+- [x] Add possibility to simulate ECN with multiple start tokens
 - [ ] Add analysis tool to check if wanted traces and possible traces allign correctly
 - [ ] Add analysis to check for deadlocks in ECN
-- [X] Add automatic visulisation of ECN
+- [x] Add automatic visulisation of ECN
 - [ ] Add .exe file
 - [ ] host webpage
 
