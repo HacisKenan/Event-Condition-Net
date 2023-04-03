@@ -1,0 +1,7 @@
+lib
+classes
+example-classes
+docs
+
+# Project exclude paths
+/out/

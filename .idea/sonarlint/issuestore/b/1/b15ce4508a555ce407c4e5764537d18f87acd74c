@@ -1,0 +1,265 @@
+
+u
+java:S2293“"YReplace the type specification in this constructor call with the diamond operator ("<>").(óÇáÀûÿÿÿÿ
+o
+java:S2293†"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÍÛ¿
+u
+java:S2293ò"YReplace the type specification in this constructor call with the diamond operator ("<>").(…İ¥¹øÿÿÿÿ
+u
+java:S2293‘"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô”£éşÿÿÿÿ
+p
+java:S2293ë"YReplace the type specification in this constructor call with the diamond operator ("<>").(“ªØª
+u
+java:S2293ò"YReplace the type specification in this constructor call with the diamond operator ("<>").(“¬Øüıÿÿÿÿ
+u
+java:S2293Ş"YReplace the type specification in this constructor call with the diamond operator ("<>").(àêæüûÿÿÿÿ
+p
+java:S2293Ä"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÊŒèä
+u
+java:S2293ô"YReplace the type specification in this constructor call with the diamond operator ("<>").(ºæ²âıÿÿÿÿ
+p
+java:S2293€"YReplace the type specification in this constructor call with the diamond operator ("<>").(éÍ˜¯
+u
+java:S2293Ä"YReplace the type specification in this constructor call with the diamond operator ("<>").(–ìã›ıÿÿÿÿ
+p
+java:S2293ğ""YReplace the type specification in this constructor call with the diamond operator ("<>").(Ÿ’¾ì
+u
+java:S2293“&"YReplace the type specification in this constructor call with the diamond operator ("<>").(’·Ëÿÿÿÿÿ
+u
+java:S2293–&"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŒŸ–¹ùÿÿÿÿ
+p
+java:S2293&"YReplace the type specification in this constructor call with the diamond operator ("<>").(·ÁØ 
+u
+java:S2293æ6"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô”£éşÿÿÿÿ
+p
+java:S2293—8"YReplace the type specification in this constructor call with the diamond operator ("<>").(éÍ˜¯
+u
+java:S2293§8"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ã´å÷ıÿÿÿÿ
+p
+java:S2293ğ8"YReplace the type specification in this constructor call with the diamond operator ("<>").(ªÇ§´
+u
+java:S2293°9"YReplace the type specification in this constructor call with the diamond operator ("<>").(‡Ğø¯ÿÿÿÿÿ
+u
+java:S2293İ9"YReplace the type specification in this constructor call with the diamond operator ("<>").(Š¢¤ëûÿÿÿÿ
+p
+java:S2293©:"YReplace the type specification in this constructor call with the diamond operator ("<>").(à»‚ê
+u
+java:S2293”;"YReplace the type specification in this constructor call with the diamond operator ("<>").(„„«úşÿÿÿÿ
+]
+java:S1192ø"GDefine a constant instead of duplicating this literal "source" 4 times.(Œ¨Ó_
+^
+java:S1192ù"GDefine a constant instead of duplicating this literal "target" 4 times.(œüÉª
+^
+java:S1192•"GDefine a constant instead of duplicating this literal "cells" 18 times.(ùÀØÌ
+o	java:S135£"YReduce the total number of break and continue statements in this loop to use at most one.(ĞÓí…
+F
+java:S1066¼"/Merge this if statement with the enclosing one.(äœĞÓ
+E
+java:S1066š"/Merge this if statement with the enclosing one.(‘ì‹3
+K
+java:S1066‘+"/Merge this if statement with the enclosing one.(ô›ÿÿÿÿÿ
+F
+java:S1066â9"/Merge this if statement with the enclosing one.(ˆüïŒ
+F
+java:S1066ë9"/Merge this if statement with the enclosing one.(Œ˜¦©
+‚
+java:S1319¢)"fThe type of "context" should be an interface such as "Map" rather than the implementation "Hashtable".(˜âÊ°øÿÿÿÿ
+D
+java:S1604˜"(Make this anonymous inner class a lambda(š‚Ğúÿÿÿÿ
+?
+java:S1604£"(Make this anonymous inner class a lambda(¤Ëµğ
+?
+java:S1604±"(Make this anonymous inner class a lambda(¶…Ë
+D
+java:S1604š,"(Make this anonymous inner class a lambda(«°¹ïøÿÿÿÿ
+D
+java:S1604¤-"(Make this anonymous inner class a lambda(«°¹ïøÿÿÿÿ
+D
+java:S1604×-"(Make this anonymous inner class a lambda(«°¹ïøÿÿÿÿ
+D
+java:S1604º4"(Make this anonymous inner class a lambda(«°¹ïøÿÿÿÿ
+D
+java:S1604Ò="(Make this anonymous inner class a lambda(ŸÂ‘şÿÿÿÿ
+h	java:S101³"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(§ó‰ûÿÿÿÿ
+S
+java:S4973¥!"<Strings and Boxed types should be compared using "equals()".(ı”‚¹
+S
+java:S4973¦!"<Strings and Boxed types should be compared using "equals()".(Ö«À
+\
+java:S2184÷"@Cast one of the operands of this integer division to a "double".(íöëøÿÿÿÿ
+W
+java:S2184ø"@Cast one of the operands of this integer division to a "double".(êñ—Ô
+d
+java:S2184ÿ"HCast one of the operands of this multiplication operation to a "double".(°Ÿ üÿÿÿÿ
+d
+java:S2184ó&"HCast one of the operands of this multiplication operation to a "double".(øùˆäüÿÿÿÿ
+g	java:S114Ğ"QRename this interface name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(óµ
+^
+java:S2259È"BA "NullPointerException" could be thrown; "view" is nullable here.(«ÓÒïûÿÿÿÿ
+O
+java:S2589Ï "8Remove this expression which always evaluates to "false"(­¢ç
+v
+java:S1149«("_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(Î±ÿ
+v
+java:S1149ù("_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(Î±ÿ
+r
+java:S1149¢)"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(˜âÊ°øÿÿÿÿ
+Q	java:S107ê"<Method has 8 parameters, which is greater than 7 authorized.(–°Y
+Q	java:S107‚"<Method has 9 parameters, which is greater than 7 authorized.(–°Y
+R	java:S107™"<Method has 8 parameters, which is greater than 7 authorized.(‘¿º
+R	java:S107®"<Method has 9 parameters, which is greater than 7 authorized.(‘¿º
+>
+java:S1905¶"'Remove this unnecessary cast to "List".(¸µ†»
+8
+java:S1116ÿ"Remove this empty statement.(ôŸìúÿÿÿÿ
+p
+java:S6201"TReplace this instanceof check and cast with 'instanceof mxChildChange mxchildchange'(¸´ÿ…øÿÿÿÿ
+v
+java:S6201‘"ZReplace this instanceof check and cast with 'instanceof mxTerminalChange mxterminalchange'(şê‘áøÿÿÿÿ
+k
+java:S6201•"TReplace this instanceof check and cast with 'instanceof mxValueChange mxvaluechange'(€šË
+k
+java:S6201™"TReplace this instanceof check and cast with 'instanceof mxStyleChange mxstylechange'(æÿÒ 
+v
+java:S6201"ZReplace this instanceof check and cast with 'instanceof mxGeometryChange mxgeometrychange'(òö³ûÿÿÿÿ
+p
+java:S6201¡"ZReplace this instanceof check and cast with 'instanceof mxCollapseChange mxcollapsechange'(€ˆÎe
+g
+java:S6201¥"KReplace this instanceof check and cast with 'instanceof mxVisibleChange vc'(ŒÚ½²ûÿÿÿÿ
+t
+java:S6201¥"XReplace this instanceof check and cast with 'instanceof mxVisibleChange mxvisiblechange'(ŒÚ½²ûÿÿÿÿ
+D
+java:S1172·"-Remove this unused method parameter "sender".(õŸğó
+n
+java:S3776Î"RRefactor this method to reduce its Cognitive Complexity from 69 to the 15 allowed.(Ì›¢şÿÿÿÿ
+i
+java:S6201Ó"RReplace this instanceof check and cast with 'instanceof mxRootChange mxrootchange'(‘é³˜
+`
+java:S6201î"IReplace this instanceof check and cast with 'instanceof mxChildChange cc'(‰Ò÷×
+v
+java:S6201¢"ZReplace this instanceof check and cast with 'instanceof mxTerminalChange mxterminalchange'(şê‘áøÿÿÿÿ
+k
+java:S6201°"TReplace this instanceof check and cast with 'instanceof mxValueChange mxvaluechange'(€šË
+k
+java:S6201¾"TReplace this instanceof check and cast with 'instanceof mxStyleChange mxstylechange'(æÿÒ 
+I
+java:S1135É"2Complete the task associated to this TODO comment.(æ¦¥ÿ
+v
+java:S6201Ñ"ZReplace this instanceof check and cast with 'instanceof mxGeometryChange mxgeometrychange'(òö³ûÿÿÿÿ
+p
+java:S6201ß"ZReplace this instanceof check and cast with 'instanceof mxCollapseChange mxcollapsechange'(€ˆÎe
+p
+java:S6201ß"ZReplace this instanceof check and cast with 'instanceof mxCollapseChange mxcollapsechange'(€ˆÎe
+t
+java:S6201î"XReplace this instanceof check and cast with 'instanceof mxVisibleChange mxvisiblechange'(ŒÚ½²ûÿÿÿÿ
+t
+java:S6201î"XReplace this instanceof check and cast with 'instanceof mxVisibleChange mxvisiblechange'(ŒÚ½²ûÿÿÿÿ
+E
+java:S1940¯")Use the opposite operator ("!=") instead.( àìıÿÿÿÿ
+M
+java:S2696î"6Make the enclosing method "static" or remove this set.(­¯Ã
+i
+java:S3776—"RRefactor this method to reduce its Cognitive Complexity from 61 to the 15 allowed.(¢ìÂ­
+H
+java:S1172Ğ",Remove this unused method parameter "cells".(¯‡®şÿÿÿÿÿ
+i
+java:S3776ñ"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(¥Ò‚ş
+i
+java:S3776Ø"RRefactor this method to reduce its Cognitive Complexity from 84 to the 15 allowed.(ˆÊ­ß
+n
+java:S3776‘"RRefactor this method to reduce its Cognitive Complexity from 55 to the 15 allowed.(æ¬’Èÿÿÿÿÿ
+n
+java:S3776·"RRefactor this method to reduce its Cognitive Complexity from 44 to the 15 allowed.(µğÚ“ûÿÿÿÿ
+i
+java:S3776ù"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Ó°ØÈ
+h
+java:S3776Ä"RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.(¢£¬
+i
+java:S3776©"RRefactor this method to reduce its Cognitive Complexity from 37 to the 15 allowed.(‡ Ó“
+n
+java:S3776¶"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(ØÚİÎÿÿÿÿÿ
+n
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ã·»Ğúÿÿÿÿ
+n
+java:S3776¿"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(µ¤ÁÊÿÿÿÿÿ
+=
+java:S1168 "&Return an empty array instead of null.(¥¹ï
+h
+java:S3776Ä "RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(ïÒî%
+`
+java:S1134Î "DTake the required action to fix the issue indicated by this comment.(Çìğöøÿÿÿÿ
+n
+java:S3776†!"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(¯ÍşÒøÿÿÿÿ
+m
+java:S2159Ö!"VRemove this call to "equals"; comparisons between unrelated types always return false.(š¦¥‡
+r
+java:S2159Ø!"VRemove this call to "equals"; comparisons between unrelated types always return false.(Š†Ñ–ûÿÿÿÿ
+_
+java:S6201Á""HReplace this instanceof check and cast with 'instanceof mxICell mxicell'(üğô­
+i
+java:S3776å""RRefactor this method to reduce its Cognitive Complexity from 62 to the 15 allowed.(úÓø“
+p
+java:S3012ô""YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(ğİğ¾
+i
+java:S3776‹&"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ÊĞÏË
+n
+java:S3776("RRefactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.(ÆÏˆúÿÿÿÿ
+n
+java:S3776õ("RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(îéÈÃøÿÿÿÿ
+j
+java:S1871’)"NThis branch's code block is the same as the block for the branch on line 5257.(ÒÌâ–øÿÿÿÿ
+C
+java:S1125Ä."'Remove the unnecessary boolean literal.(³¹ßÈüÿÿÿÿ
+G
+java:S1172°4"+Remove this unused method parameter "cell".(Óˆõ—úÿÿÿÿ
+F
+java:S1172Ë4"/Remove this unused method parameter "collapse".(ŸÄĞĞ
+@
+java:S1172å5")Remove this unused method parameter "pt".(ÂÑ¢Æ
+[
+java:S1134ò5"DTake the required action to fix the issue indicated by this comment.(ãµÒƒ
+R	java:S125ó5"<This block of commented-out lines of code should be removed.(İÁ³
+W	java:S125ù5"<This block of commented-out lines of code should be removed.(İò¢¶şÿÿÿÿ
+8
+java:S1116’6"Remove this empty statement.(ôŸìúÿÿÿÿ
+i
+java:S3776“8"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Ÿô•²
+i
+java:S3776Ô9"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ê›€Ã
+n
+java:S3776¦:"RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.(„ÊÅúÿÿÿÿ
+i
+java:S3776;"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(À×çÎ
+h
+java:S3776Ù<"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÄóÿC
+P
+java:S1854Î=":Remove this useless assignment to local variable "parent".(æ„ù
+i
+java:S3776¯>"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ó»¾‰
+p
+java:S6201Ä>"TReplace this instanceof check and cast with 'instanceof mxImageCanvas mximagecanvas'(Û¿›…şÿÿÿÿ
+W	java:S125É>"<This block of commented-out lines of code should be removed.(ù¢åûÿÿÿÿ
+I
+java:S1135È>"2Complete the task associated to this TODO comment.(Ú®è
+u
+java:S6201Í>"^Replace this instanceof check and cast with 'instanceof mxGraphics2DCanvas mxgraphics2dcanvas'(Æï³™
+h
+java:S6201Ó>"LReplace this instanceof check and cast with 'instanceof Rectangle rectangle'(«ü±ùÿÿÿÿ
+u
+java:S6201é>"^Replace this instanceof check and cast with 'instanceof mxGraphics2DCanvas mxgraphics2dcanvas'(Æï³™
+n
+java:S3776ü>"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(‹Î¡‰üÿÿÿÿ
+[
+java:S1172ü>"?Remove these unused method parameters "canvas", "labelElement".(‹Î¡‰üÿÿÿÿ
+\
+java:S6201ÿ>"EReplace this instanceof check and cast with 'instanceof Element elem'(±Á¸™
+^
+java:S1858Š?"G"link" is already a string, there's no need to call "toString()" on it.(¥ëÁİ
+^
+java:S1858•?"G"link" is already a string, there's no need to call "toString()" on it.(İäë
+c
+java:S1858¤?"G"link" is already a string, there's no need to call "toString()" on it.(»œ±ûÿÿÿÿ
+G
+java:S1172¿?"+Remove this unused method parameter "cell".(›Ëëıÿÿÿÿ
+G
+java:S1172Ç?"+Remove this unused method parameter "cell".(©Ä×¼üÿÿÿÿ

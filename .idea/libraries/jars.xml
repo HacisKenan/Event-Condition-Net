@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="jars">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jars/junit-4.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/jetty-6.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/jetty-util-6.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/servlet-api-2.5-6.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/mxPdf.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
