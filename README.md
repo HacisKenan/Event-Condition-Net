@@ -79,10 +79,10 @@ Current project status
 * created class to store a Event-Condition-Net
 * programmed program to simulate Event-Condition-Net
 * programmed simple gui in java swing, where you can input your Event-Condition-Net in set notation and get an output with possible traces
+* visualisation of petri net with mxGraph (https://github.com/jgraph/mxgraph/tree/master/java)
 
 Future features
 * improved simulation, with multiplite start tokens
-* visualisation of petri net 
 * more analyzing possibilities
 * webpage
 * .exe file
@@ -93,23 +93,25 @@ Future features
 <!-- GETTING STARTED -->
 ## Getting Started
 
-1. Clone repository in preferred IDE and use the file test.java in main module and gui package to start the gui. 
-2. Run the program now a gui should popup
-<img width="791" alt="image" src="https://user-images.githubusercontent.com/71691437/227336575-54b6f7c0-ab14-49ba-bdd4-fef80c823aaf.png">
-3. input your places in following notation
-<img width="429" alt="image" src="https://user-images.githubusercontent.com/71691437/227332200-32e6150f-12a6-41bd-82ab-387f4b57c767.png"> 
+1. Clone repository in preferred IDE and use the file test.java in "main" module and "gui" package to run the program. 
+2. Run the program -> a gui should popup with already filled out input for testing
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/71691437/229566780-d46e99e8-20e7-4383-8616-ddab536c2c39.png">
+3. input your places in following notation 
+<img width="202" alt="image" src="https://user-images.githubusercontent.com/71691437/229567207-084e3fc9-6ff4-49e1-b254-470952351784.png">
 4. input your events in following notation
-<img width="453" alt="image" src="https://user-images.githubusercontent.com/71691437/227332746-4e8e0ad0-b88d-45c9-91d8-1a46d19bd057.png">
+<img width="200" alt="image" src="https://user-images.githubusercontent.com/71691437/229567258-b3a96ede-162e-4c74-b415-9d53d6098b93.png">
 5. input your edges in following notation
-<img width="421" alt="image" src="https://user-images.githubusercontent.com/71691437/227332849-da16d086-3f42-4f6a-b9f5-3345a9ef954c.png">
-6. press "Simulation starten" and your output should look like this
-<img width="158" alt="image" src="https://user-images.githubusercontent.com/71691437/227332956-e6b08947-2395-45a5-88ab-a4c788f01afd.png">
+<img width="200" alt="image" src="https://user-images.githubusercontent.com/71691437/229567344-20943e2f-d81d-47e3-938c-51a286e48984.png">
+6. press "start simulation" and your output should look like this
+<img width="549" alt="image" src="https://user-images.githubusercontent.com/71691437/229567554-baa5cc88-1cb6-493b-b2f2-a0650d380c80.png">
+<img width="157" alt="image" src="https://user-images.githubusercontent.com/71691437/229567461-68466007-4be8-48dc-b4f3-95c7de867a0a.png">
 This output shows that based on your input there are two possible traces, meaning that either your event T2 or T3 fires first.
 
 ### Prerequisites
-
 There are no prerequisites needed.
 
+### Usages
+Following repository has been used to visualize EC-Net in Java Swing (all credits to the creator): https://github.com/jgraph/mxgraph/tree/master/java
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -120,7 +122,7 @@ There are no prerequisites needed.
 - [ ] Add possibility to simulate ECN with multiple start tokens
 - [ ] Add analysis tool to check if wanted traces and possible traces allign correctly
 - [ ] Add analysis to check for deadlocks in ECN
-- [ ] Add automatic visulisation of ECN
+- [X] Add automatic visulisation of ECN
 - [ ] Add .exe file
 - [ ] host webpage
 
